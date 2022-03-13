@@ -10,16 +10,28 @@ const theme = createTheme({
       },
       error: {
          main: '#F44336'
+      },
+      text: {
+         // secondary: '#FFFFFF',
       }
    },
    typography: {
       fontFamily: 'Roboto',
    },
-   // shape: {
-   //    // borderRadius: 10,
-   //    backgroundColor: '#00BCD4',
-   //    color: 'white',
-   // }
+
+   // STYLE FOR MUI COMPONENT
+   components: {
+      // Name of the component
+      MuiDrawer: {
+         styleOverrides: {
+            // Name of the slot
+            paperAnchorLeft: {
+               // Some CSS
+               top: 'auto',
+            },
+         },
+      },
+   },
 });
 
 export default theme;

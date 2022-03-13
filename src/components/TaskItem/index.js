@@ -8,10 +8,11 @@ import CardActions from '@mui/material/CardActions';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import PropTypes from 'prop-types';
 
 function TaskItem(props) {
    const classes = styleTaskItem();
-   let {task, status} = props;
+   let { task, status, handleEditTask, handleDeleteTask } = props;
    return (
       <Card className={classes.card}>
          <CardContent>
@@ -24,15 +25,22 @@ function TaskItem(props) {
             <p>{task.description}</p>
          </CardContent>
          <CardActions className={classes.cardActions}>
-            <Fab size="small" color="primary" aria-label="edit">
+            <Fab size="small" color="primary" aria-label="edit" onClick={handleEditTask}>
                <EditIcon fontSize='small' />
             </Fab>
-            <Fab size="small" color="secondary" aria-label="delete">
-               <DeleteIcon fontSize='small' />
+            <Fab size="small" color="secondary" aria-label="delete" onClick={handleDeleteTask} >
+               <DeleteIcon fontSize='small'/>
             </Fab>
          </CardActions>
       </Card>
    )
+}
+
+TaskItem.propTypes = {
+   task: PropTypes.object,
+   status: PropTypes.object,
+   handleEditTask: PropTypes.func,
+   handleDeleteTask: PropTypes.func,
 }
 
 export default TaskItem
